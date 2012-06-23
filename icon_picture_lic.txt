@@ -1,0 +1,9 @@
+本アプリで使用しているアイコンの著作権表示
+
+以下のアイコン用画像をトリム・色変更など行ったものを使用しています。
+
+[Down/Up Arrow Icon]
+Designer: FatCow Web Hosting
+License: Creative Commons Attribution (by)
+http://findicons.com/icon/164473/bullet_arrow_down?id=343940
+http://www.fatcow.com/
