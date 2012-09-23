@@ -23,7 +23,6 @@ public class JScrollerMenuItem extends JMenuItem {
      * @param icon アイコン
      */
     public JScrollerMenuItem(Icon icon) {
-        setHorizontalTextPosition(SwingConstants.CENTER);
         setIcon(icon);
     }
     

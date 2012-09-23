@@ -27,8 +27,6 @@ public class Main {
             @Override
             public void run() {
                 ScrollableMenuFrame frame = new ScrollableMenuFrame();
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(300, 200);
                 frame.setLocationByPlatform(true);
                 frame.setVisible(true);
             }

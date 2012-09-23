@@ -1,7 +1,12 @@
 package ui;
 
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Properties;
 import javax.swing.*;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
@@ -27,6 +32,10 @@ public class ScrollableMenuFrame extends JFrame {
      * コンストラクタ
      */
     public ScrollableMenuFrame() {
+        setTitle("ScrollableMenu Sample");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(600, 400);
+
         menubar = new JMenuBar();
 
         // ファイルメニュー
@@ -86,5 +95,35 @@ public class ScrollableMenuFrame extends JFrame {
 
         // メニューバーをフレームに設定する.
         setJMenuBar(menubar);
+        
+        // 診断用パネル生成
+        initDiagPanel();
+    }
+    
+    /**
+     * システムプロパティ一覧を表示する、診断パネル生成
+     */
+    private void initDiagPanel() {
+        Container contentPane = getContentPane();
+        contentPane.setLayout(new BorderLayout());
+
+        String lf = System.getProperty("line.separator");
+
+        Properties sysProps = System.getProperties();
+        ArrayList<String> propNames = new ArrayList<String>();
+        propNames.addAll(sysProps.stringPropertyNames());
+        Collections.sort(propNames);
+        
+        StringBuilder buf = new StringBuilder();
+        for (String propName : propNames) {
+            String value = sysProps.getProperty(propName);
+            buf.append(propName).append("=").append(value).append(lf);
+        }
+        
+        JTextPane textPane = new JTextPane();
+        textPane.setText(buf.toString());
+
+        JScrollPane scr = new JScrollPane(textPane);
+        contentPane.add(scr, BorderLayout.CENTER);
     }
 }
